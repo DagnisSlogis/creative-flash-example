@@ -1,0 +1,6 @@
+en:
+  flash:
+    dashboard:
+      notice: "This is a notice, something went well."
+      alert: "This is an alert, something did not go as expected."
+      redirect: "This is a flash notice that went through an intermediate redirect."

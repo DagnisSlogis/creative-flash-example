@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'dashboard#show'
+
+  resource :dashboard, only: [:show, :create], controller: "dashboard" do
+    collection do
+      get :custom
+    end
+  end
 end

@@ -1,15 +1,19 @@
 require_relative 'boot'
-
 require 'rails/all'
-
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module CreativeFlashExample
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    config.generators.assets = false
+    config.generators.helper = false
+    config.i18n.default_locale = "en"
+
+    config.time_zone = 'Riga'
+    config.autoload_paths += Dir["#{Rails.root}/app/models/concerns/**/*.rb"]
+    config.autoload_paths += Dir["#{Rails.root}/app/controllers/concerns/**/*.rb"]
+    config.autoload_paths += Dir["#{Rails.root}/app/lib/**/*.rb"]
+    config.autoload_paths += Dir["#{Rails.root}/app/jobs/**/*.rb"]
+
+    config.i18n.load_path += Dir["#{Rails.root}/config/locales/**/*.yml"]
   end
 end

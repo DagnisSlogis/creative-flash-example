@@ -1,0 +1,15 @@
+- flash.keys.each do |flash_key|
+  h3
+    = "class=#{flash_key} value=#{flash[flash_key]}"     
+  
+= form_tag '/dashboard'
+  = hidden_field_tag 'notice', 'true'
+  = submit_tag 'Produce a :notice'
+  
+= form_tag '/dashboard'
+  = hidden_field_tag 'alert', 'true'
+  = submit_tag 'Produce an :alert'
+  
+= form_tag '/dashboard'
+  = hidden_field_tag 'redirect', 'true'
+  = submit_tag 'Produce a :notice through a redirect'
