@@ -55,7 +55,7 @@ redirect_to action_with_view_path
 Note that flash contents are marked for cleanup automatically once `render` is called.  
 This means that flash messages are correctly persisted over redirects, as can be seen in this app's example.   
 
-### Flash MEssage Displaying
+### Flash Message Displaying
 The template that ends up being rendered must have a catch-all flash message processor.  
 This is probably best achieved via a partial that is included in all templates (via layout?)
 
@@ -66,7 +66,8 @@ This is probably best achieved via a partial that is included in all templates (
     = "class=#{flash_key} value=#{flash[flash_key]}"   
 ```
 
-The flash messages ought to be displayed "on top of" all other elements, provide a closing "x" button and automatically disappear in 10s.
+The flash messages ought to be displayed "on top of" all other elements in the right upper corner, provide a closing "x" button and automatically disappear in 10s.  
+The flash messages need not display their key type e.g. "Error", the color and text content should suffice.   
 
 Consider [this example](https://agilewarrior.files.wordpress.com/2014/04/rails-flash.png?w=500) for appeal.  
 
