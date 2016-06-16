@@ -52,6 +52,11 @@ flash[:alert] = I18n.t("flash.some.namespace.alert")
 redirect_to action_with_view_path
 ```
 
+It is also possible to define flash inline with redirect_to
+```rb
+redirect_to action_with_view_path(locale: I18n.locale), flash: {alert: "Item is not valid!"}
+```
+
 Note that flash contents are marked for cleanup automatically once `render` is called.  
 This means that flash messages are correctly persisted over redirects, as can be seen in this app's example.   
 
