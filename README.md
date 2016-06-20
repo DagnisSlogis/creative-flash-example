@@ -65,10 +65,47 @@ The template that ends up being rendered must have a catch-all flash message pro
 This is probably best achieved via a partial that is included in all templates (via layout?)
 
 ```slim
-- flash.keys.each do |flash_key|
-  / this is mock
-  h3
-    = "class=#{flash_key} value=#{flash[flash_key]}"   
+- flash.each do |name, message|
+	javascript:
+		$(function(){
+			if("#{name}" == 'alert') {
+				$.growl.error({
+					title: "",
+					message: "#{message}",
+					duration: 10000
+				 });
+			}
+			else {
+				$.growl.notice({
+					title: "",
+					message: "#{message}",
+					duration: 10000
+				});
+			}
+		});
+```
+
+```html.erb
+<% flash.each do |name, message| %>
+			<script type="text/javascript">
+				$(function(){
+					if('<%= name %>' == 'alert') {
+						$.growl.error({
+							title: "",
+							message: '<%= message %>',
+							duration: 10000
+						 });
+					}
+					else {
+						$.growl.notice({
+							title: "",
+							message: '<%= message %>',
+							duration: 10000
+						});
+					}
+				});
+			</script>
+		<% end %>   
 ```
 
 The flash messages ought to be displayed "on top of" all other elements in the right upper corner, provide a closing "x" button and automatically disappear in 10s.  
