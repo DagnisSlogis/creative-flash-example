@@ -4,7 +4,7 @@ ruby "2.3.1"
 gem 'rails', '>= 5.0.0.rc1', '< 5.1'
 gem 'rake', "~> 10.5.0"
 gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12', '>= 3.12.4'
 gem 'slim'
 
 gem 'sass-rails', '~> 5.0'
